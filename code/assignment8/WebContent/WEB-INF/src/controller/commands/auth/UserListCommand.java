@@ -2,8 +2,8 @@ package controller.commands.auth;
 
 import auth.UserManager;
 import controller.commands.AbstractCommand;
-import model.auth.User;
-import model.auth.User.Role;
+import model.User;
+import model.User.Role;
 import annotation.Authorize;
 
 import java.io.IOException;

@@ -7,7 +7,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import model.auth.User.Role;
+import model.User.Role;
  
 @Documented
 @Target(ElementType.TYPE)

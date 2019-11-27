@@ -1,7 +1,7 @@
 package view.auth;
 
-import model.auth.User;
-import model.auth.User.Role;
+import model.User;
+import model.User.Role;
 
 public class AuthHelper {
 

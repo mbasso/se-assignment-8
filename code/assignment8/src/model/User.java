@@ -1,83 +1,61 @@
-package model.auth;
+package model;
 
 public class User {
-
-	public enum Role { ADMIN, READER }
 
 	private String username;
 	private String password;
 	private String name;
-	private String email;
-	private String city;
-	private String country;
-	private Role role;
+	private User bestFriend;
+	private Address address;
 	
-	public User(String username, String password, String name, String email, String city, String country, Role role) {
+	public User(String username, String password, String name, User bestFriend, Address address) {
 		this.username = username;
 		this.password = password;
 		this.name = name;
-		this.email = email;
-		this.city = city;
-		this.country = country;
-		this.role = role;
+		this.bestFriend = bestFriend;
+		this.address = address;
 	}
 	
 	public String getUsername() {
 		return username;
 	}
-	
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
+
 	public String getPassword() {
 		return password;
 	}
-	
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public String getEmail() {
-		return email;
+
+	public User getBestFriend() {
+		return bestFriend;
 	}
-	
-	public void setEmail(String email) {
-		this.email = email;
+
+	public void setBestFriend(User bestFriend) {
+		this.bestFriend = bestFriend;
 	}
-	
-	public String getCity() {
-		return city;
+
+	public Address getAddress() {
+		return address;
 	}
-	
-	public void setCity(String city) {
-		this.city = city;
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
-	
-	public String getCountry() {
-		return country;
-	}
-	
-	public void setCountry(String country) {
-		this.country = country;
-	}
-	
-	public Role getRole() {
-		return role;
-	}
-	
-	public void setRole(Role role) {
-		this.role = role;
-	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -102,5 +80,5 @@ public class User {
 			return false;
 		return true;
 	}
-	
+
 }

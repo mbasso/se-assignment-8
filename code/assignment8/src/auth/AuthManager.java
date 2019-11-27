@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
-import model.auth.User;
+import model.User;
 
 public class AuthManager {
 

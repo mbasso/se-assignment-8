@@ -1,12 +1,11 @@
 package auth;
 
 import exception.ExistingUserException;
+import model.User;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import model.auth.User;
 
 public class UserManager {
 	

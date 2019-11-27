@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import auth.AuthManager;
 import controller.FrontController;
-import model.auth.User;
+import model.User;
 import view.auth.AuthHelper;
 import annotation.Authorize;
 

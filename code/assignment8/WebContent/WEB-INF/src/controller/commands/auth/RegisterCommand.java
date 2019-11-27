@@ -3,8 +3,8 @@ package controller.commands.auth;
 import auth.UserManager;
 import controller.commands.AbstractCommand;
 import exception.ExistingUserException;
-import model.auth.User;
-import model.auth.User.Role;
+import model.User;
+import model.User.Role;
 
 import java.io.IOException;
 
