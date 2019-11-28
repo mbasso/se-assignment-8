@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import assignment8.model.User;
 import assignment8.web.auth.AuthManager;
 import assignment8.web.controller.FrontController;
-import assignment8.web.view.auth.AuthHelper;
+import assignment8.web.view.AuthHelper;
 import assignment8.web.annotation.Authorize;
 
 @WebFilter("/*")
@@ -60,8 +60,6 @@ public class AuthFilter implements Filter {
         AuthManager auth = new AuthManager(httpRequest.getSession());
         User currentUser = auth.getUser();
         
-        request.setAttribute("authHelper", new AuthHelper(currentUser));
-        
         // get command class and check auth annotation
         Class<?> commandClass = FrontController.getCommandClass(httpRequest);
         Authorize authorizeAnnotation = commandClass.getAnnotation(Authorize.class);
@@ -73,7 +71,7 @@ public class AuthFilter implements Filter {
         ) {
             chain.doFilter(request, response);
         } else {
-        	httpResponse.sendRedirect("login");
+        	httpResponse.sendRedirect("/assignment8/login");
         	return;
         }
 	}

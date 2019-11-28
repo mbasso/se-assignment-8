@@ -11,8 +11,8 @@ public class DeleteCommand extends AbstractCommand {
 	@Override
 	public void processGet() throws IOException, ServletException {
 		String username = request.getParameter("username");
-		userRepository.deleteUser(username);
-		response.sendRedirect("list");
+		userRepository.delete(username);
+		response.sendRedirect("/assignment8/list");
 	}
 
 	@Override

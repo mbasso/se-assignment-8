@@ -1,7 +1,5 @@
 package assignment8.web.auth;
 
-import java.util.Optional;
-
 import javax.servlet.http.HttpSession;
 
 import assignment8.model.User;
@@ -22,20 +20,13 @@ public class AuthManager {
 	}
 	
 	public boolean login(String username, String password) {
-		Optional<User> selectedUser = new UserRepository()
-											.getAllUser()
-											.stream()
-											.filter(user ->
-												user.getUsername().equals(username) &&
-												user.getPassword().equals(password)
-											)
-											.findFirst();
+		User selectedUser = new UserRepository().get(username);
 		
-		if (!selectedUser.isPresent()) {
+		if (selectedUser == null || !selectedUser.getPassword().equals(password)) {
 			return false;
 		}
 
-		session.setAttribute(LOGGED_USER_KEY, selectedUser.get());
+		session.setAttribute(LOGGED_USER_KEY, selectedUser);
 		return true;
 	}
 	

@@ -10,6 +10,14 @@
 	<center>
 		<h1>Error</h1>
 		<h2><%=exception.getMessage() %><br/> </h2>
+		
+		<br/>
+		<p>
+			Go <a href="/assignment8/">back</a>.
+		</p>
+		<p>
+			<a href="/assignment8/logout">Logout</a>.
+		</p>
 	</center>	
 </body>
 </html>

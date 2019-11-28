@@ -3,70 +3,56 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-	<title>User Management Application</title>
+	<title>Assignment 8</title>
 </head>
 <body>
-	<center>
-		<h1>User Management</h1>
-        <h2>
-        	<a href="new">Add New User</a>
-        	&nbsp;&nbsp;&nbsp;
-        	<a href="list">List All Users</a>
-        	
-        </h2>
-	</center>
-    <div align="center">
+
+	<h1>
 		<c:if test="${user != null}">
-			<form action="update" method="post">
-        </c:if>
-        <c:if test="${user == null}">
-			<form action="insert" method="post">
-        </c:if>
-        <table border="1" cellpadding="5">
-            <caption>
-            	<h2>
-            		<c:if test="${user != null}">
-            			Edit User
-            		</c:if>
-            		<c:if test="${user == null}">
-            			Add New User
-            		</c:if>
-            	</h2>
-            </caption>
-        		<c:if test="${user != null}">
-        			<input type="hidden" name="id" value="<c:out value='${user.id}' />" />
-        		</c:if>            
-            <tr>
-                <th>User Name: </th>
-                <td>
-                	<input type="text" name="name" size="45"
-                			value="<c:out value='${user.name}' />"
-                		/>
-                </td>
-            </tr>
-            <tr>
-                <th>User Email: </th>
-                <td>
-                	<input type="text" name="email" size="45"
-                			value="<c:out value='${user.email}' />"
-                	/>
-                </td>
-            </tr>
-            <tr>
-                <th>Country: </th>
-                <td>
-                	<input type="text" name="country" size="15"
-                			value="<c:out value='${user.country}' />"
-                	/>
-                </td>
-            </tr>
-            <tr>
-            	<td colspan="2" align="center">
-            		<input type="submit" value="Save" />
-            	</td>
-            </tr>
-        </table>
-        </form>
-    </div>	
+			Update user
+		</c:if>
+		<c:if test="${user == null}">
+			New user
+		</c:if>
+	</h1>
+	<p>
+        <a href="new">Add New User</a>
+	</p>
+	<p>
+		<a href="list">User list</a>
+	</p>
+	
+	<c:if test="${user != null}">
+		<form action="edit" method="post">
+   	</c:if>
+    <c:if test="${user == null}">
+    	<form action="new" method="post">
+    </c:if>
+	<p>
+	<label for="username">Username</label><input type="text" name="username" value="<c:out value='${user.getUsername()}' />" <c:if test="${user != null}"><c:out value="readonly='true'"/></c:if>><br>
+	<label for="password">Password</label><input type="password" name="password" value="<c:out value='${user.getPassword()}' />"><br>
+	<label for="name">Name</label><input type="text" name="name" value="<c:out value='${user.getName()}' />"><br>
+	<label for="country">Country</label><input type="text" name="country" value="<c:out value='${user.getAddress().getCountry()}' />"><br>
+	<label for="city">City</label><input type="text" name="city" value="<c:out value='${user.getAddress().getCity()}' />"><br>
+	<label for="street">Street</label><input type="text" name="street" value="<c:out value='${user.getAddress().getStreet()}' />"><br>
+	</p>
+	
+	<button type="submit" name="command" value="auth.Login">
+		<c:if test="${user != null}">
+			Update
+		</c:if>
+		<c:if test="${user == null}">
+			Add
+		</c:if>
+	</button>
+	</form>
+	
+    <br/>
+	<p>
+		Go <a href="/assignment8/">back</a>.
+	</p>
+	<p>
+		<a href="/assignment8/logout">Logout</a>.
+	</p>
 </body>
 </html>

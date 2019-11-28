@@ -1,4 +1,4 @@
-package assignment8.web.view.auth;
+package assignment8.web.view;
 
 import assignment8.model.User;
 

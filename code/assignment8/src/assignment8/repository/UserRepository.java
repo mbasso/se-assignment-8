@@ -1,109 +1,63 @@
 package assignment8.repository;
 
 import java.util.List;
+import java.util.function.Function;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import assignment8.model.User;
-import assignment8.utl.HibernateUtil;
+import assignment8.util.HibernateUtil;
 
 public class UserRepository {
 	
+	private <T> T doTransaction(Function<Session, T> performTransaction) {
+		T result = null;
+		Transaction transaction = null;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			transaction = session.beginTransaction();
+			result = performTransaction.apply(session);
+			transaction.commit();
+		} catch (Exception e) {
+			if (transaction != null) {
+				transaction.rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return result;
+	}
+	
 	public void insert(User user) {
-		Transaction transaction = null;
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		try {
-			transaction = session.beginTransaction();
-			session.save(user);
-			transaction.commit();
-		} catch (Exception e) {
-			if (transaction != null) {
-				transaction.rollback();
-			}
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
+		doTransaction(session -> session.save(user));
 	}
 
-	public void updateUser(User user) {
-		Transaction transaction = null;
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		try {
-			transaction = session.beginTransaction();
+	public void update(User user) {
+		doTransaction(session -> {
 			session.update(user);
-			transaction.commit();
-		} catch (Exception e) {
-			if (transaction != null) {
-				transaction.rollback();
-			}
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
+			return null;
+		});
 	}
 
-	public void deleteUser(String username) {
-
-		Transaction transaction = null;
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		try {
-			transaction = session.beginTransaction();
+	public void delete(String username) {
+		doTransaction(session -> {
 			User user = session.get(User.class, username);
 			if (user != null) {
 				session.delete(user);
 				System.out.println("user is deleted");
 			}
-			transaction.commit();
-		} catch (Exception e) {
-			if (transaction != null) {
-				transaction.rollback();
-			}
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
+			return null;
+		});
 	}
 
-	public User getUser(String username) {
-
-		Transaction transaction = null;
-		User user = null;
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		try {
-			transaction = session.beginTransaction();
-			user = session.get(User.class, username);
-			transaction.commit();
-		} catch (Exception e) {
-			if (transaction != null) {
-				transaction.rollback();
-			}
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
-		return user;
+	public User get(String username) {
+		return doTransaction(session -> session.get(User.class, username));
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<User> getAllUser() {
-
-		Transaction transaction = null;
-		List<User> listOfUser = null;
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		try {
-			transaction = session.beginTransaction();
-			listOfUser = session.createQuery("from User").getResultList();
-			transaction.commit();
-		} catch (Exception e) {
-			if (transaction != null) {
-				transaction.rollback();
-			}
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
-		return listOfUser;
+	public List<User> getAll() {
+		return doTransaction(session -> session.createQuery("from User").getResultList());
 	}
 }

@@ -10,16 +10,13 @@ public class LogoutCommand extends AbstractCommand {
 	
 	@Override
 	public void processGet() throws ServletException, IOException {
-		throw new UnsupportedOperationException();
+		new AuthManager(request.getSession()).logout();
+		response.sendRedirect("/assignment8");
 	}
 
 	@Override
 	public void processPost() throws ServletException, IOException {
-		AuthManager auth = new AuthManager(request.getSession());
-		
-		auth.logout();
-		
-		response.sendRedirect("/");
+		throw new UnsupportedOperationException();
 	}
 
 }

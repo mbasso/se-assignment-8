@@ -29,6 +29,6 @@ public class NewCommand extends AbstractCommand {
 		);
 		User newUser = new User(username, password, name, null, address);
 		userRepository.insert(newUser);
-		response.sendRedirect("list");
+		response.sendRedirect("/assignment8/list");
 	}
 }

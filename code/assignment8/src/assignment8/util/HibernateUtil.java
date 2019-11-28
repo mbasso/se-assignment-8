@@ -1,4 +1,4 @@
-package assignment8.utl;
+package assignment8.util;
 
 import java.util.Properties;
 

@@ -14,7 +14,7 @@ public class ListCommand extends AbstractCommand {
 
 	@Override
 	public void processGet() throws IOException, ServletException {
-		List<User> users = new UserRepository().getAllUser();
+		List<User> users = new UserRepository().getAll();
 		request.setAttribute("users", users);
 		sc.getRequestDispatcher("/user-list.jsp").forward(request, response);
 	}
