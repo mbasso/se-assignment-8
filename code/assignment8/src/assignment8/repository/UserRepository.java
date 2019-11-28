@@ -1,4 +1,4 @@
-package assignment8.dao;
+package assignment8.repository;
 
 import java.util.List;
 
@@ -8,82 +8,80 @@ import org.hibernate.Transaction;
 import assignment8.model.User;
 import assignment8.utl.HibernateUtil;
 
-public class UserDao {
+public class UserRepository {
 	
-	public void saveUser(User user) {
+	public void insert(User user) {
 		Transaction transaction = null;
-		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			// start a transaction
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
 			transaction = session.beginTransaction();
-			// save the student object
 			session.save(user);
-			// commit transaction
 			transaction.commit();
 		} catch (Exception e) {
 			if (transaction != null) {
 				transaction.rollback();
 			}
 			e.printStackTrace();
+		} finally {
+			session.close();
 		}
 	}
 
 	public void updateUser(User user) {
 		Transaction transaction = null;
-		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			// start a transaction
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
 			transaction = session.beginTransaction();
-			// save the student object
 			session.update(user);
-			// commit transaction
 			transaction.commit();
 		} catch (Exception e) {
 			if (transaction != null) {
 				transaction.rollback();
 			}
 			e.printStackTrace();
+		} finally {
+			session.close();
 		}
 	}
 
-	public void deleteUser(int id) {
+	public void deleteUser(String username) {
 
 		Transaction transaction = null;
-		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			// start a transaction
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
 			transaction = session.beginTransaction();
-
-			// Delete a user object
-			User user = session.get(User.class, id);
+			User user = session.get(User.class, username);
 			if (user != null) {
 				session.delete(user);
 				System.out.println("user is deleted");
 			}
-
-			// commit transaction
 			transaction.commit();
 		} catch (Exception e) {
 			if (transaction != null) {
 				transaction.rollback();
 			}
 			e.printStackTrace();
+		} finally {
+			session.close();
 		}
 	}
 
-	public User getUser(int id) {
+	public User getUser(String username) {
 
 		Transaction transaction = null;
 		User user = null;
-		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			// start a transaction
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
 			transaction = session.beginTransaction();
-			// get an user object
-			user = session.get(User.class, id);
-			// commit transaction
+			user = session.get(User.class, username);
 			transaction.commit();
 		} catch (Exception e) {
 			if (transaction != null) {
 				transaction.rollback();
 			}
 			e.printStackTrace();
+		} finally {
+			session.close();
 		}
 		return user;
 	}
@@ -93,20 +91,18 @@ public class UserDao {
 
 		Transaction transaction = null;
 		List<User> listOfUser = null;
-		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			// start a transaction
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
 			transaction = session.beginTransaction();
-			// get an user object
-			
 			listOfUser = session.createQuery("from User").getResultList();
-			
-			// commit transaction
 			transaction.commit();
 		} catch (Exception e) {
 			if (transaction != null) {
 				transaction.rollback();
 			}
 			e.printStackTrace();
+		} finally {
+			session.close();
 		}
 		return listOfUser;
 	}

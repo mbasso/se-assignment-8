@@ -1,10 +1,12 @@
 package assignment8.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,11 +23,13 @@ public class User {
     @Column(name="name")
 	private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
 	private User bestFriend;
 
-    @ManyToOne
+    @OneToOne(cascade = {CascadeType.ALL})
 	private Address address;
+	
+	public User() {}
 	
 	public User(String username, String password, String name, User bestFriend, Address address) {
 		this.username = username;

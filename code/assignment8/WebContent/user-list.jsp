@@ -19,22 +19,28 @@
         <table border="1" cellpadding="5">
             <caption><h2>List of Users</h2></caption>
             <tr>
-                <th>ID</th>
+                <th>Username</th>
+                <th>Password</th>
                 <th>Name</th>
-                <th>Email</th>
+                <th>Best Friend</th>
                 <th>Country</th>
+                <th>City</th>
+                <th>Street</th>
                 <th>Actions</th>
             </tr>
-            <c:forEach var="user" items="${listUser}">
+            <c:forEach var="user" items="${users}">
                 <tr>
-                    <td><c:out value="${user.id}" /></td>
-                    <td><c:out value="${user.name}" /></td>
-                    <td><c:out value="${user.email}" /></td>
-                    <td><c:out value="${user.country}" /></td>
+                    <td><c:out value="${user.getUsername()}" /></td>
+                    <td><c:out value="${user.getPassword()}" /></td>
+                    <td><c:out value="${user.getName()}" /></td>
+                    <td><c:out value="${user.getBestFriend() != null ? user.getBestFriend().getUsername() : \"\"}" /></td>
+                    <td><c:out value="${user.getAddress().getCountry()}" /></td>
+                    <td><c:out value="${user.getAddress().getCity()}" /></td>
+                    <td><c:out value="${user.getAddress().getStreet()}" /></td>
                     <td>
-                    	<a href="edit?id=<c:out value='${user.id}' />">Edit</a>
+                    	<a href="edit?username=<c:out value='${user.getUsername()}' />">Edit</a>
                     	&nbsp;&nbsp;&nbsp;&nbsp;
-                    	<a href="delete?id=<c:out value='${user.id}' />">Delete</a>                    	
+                    	<a href="delete?username=<c:out value='${user.getUsername()}' />">Delete</a>                    	
                     </td>
                 </tr>
             </c:forEach>

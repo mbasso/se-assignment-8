@@ -24,6 +24,8 @@ public class Address {
     
     @Column(name="street")
 	private String street;
+	
+	public Address() {}
 
 	public Address(int id, String country, String city, String street) {
 		this.id = id;
