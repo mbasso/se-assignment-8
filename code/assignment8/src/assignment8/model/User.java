@@ -27,7 +27,6 @@ public class User {
 	private String name;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @OnDelete(action = OnDeleteAction.CASCADE)
 	private User bestFriend;
 
     @OneToOne(cascade = {CascadeType.ALL})
