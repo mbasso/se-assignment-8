@@ -69,6 +69,8 @@ public class AuthFilter implements Filter {
         	authorizeAnnotation == null ||
         	currentUser != null
         ) {
+            request.setAttribute("authHelper", new AuthHelper(currentUser));
+
             chain.doFilter(request, response);
         } else {
         	httpResponse.sendRedirect("/assignment8/login");

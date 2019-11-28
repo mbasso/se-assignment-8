@@ -1,12 +1,9 @@
 package assignment8.web.command;
 
-import assignment8.repository.UserRepository;
-import assignment8.model.User;
 import assignment8.web.annotation.Authorize;
+import assignment8.web.view.UserHelper;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 
 @Authorize
@@ -14,8 +11,7 @@ public class ListCommand extends AbstractCommand {
 
 	@Override
 	public void processGet() throws IOException, ServletException {
-		List<User> users = new UserRepository().getAll();
-		request.setAttribute("users", users);
+		request.setAttribute("userHelper", new UserHelper());
 		sc.getRequestDispatcher("/user-list.jsp").forward(request, response);
 	}
 

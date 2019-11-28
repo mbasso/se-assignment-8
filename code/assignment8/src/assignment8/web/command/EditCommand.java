@@ -3,6 +3,7 @@ package assignment8.web.command;
 import assignment8.model.Address;
 import assignment8.model.User;
 import assignment8.web.annotation.Authorize;
+import assignment8.web.view.UserHelper;
 
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -13,9 +14,7 @@ public class EditCommand extends AbstractCommand {
 
 	@Override
 	public void processGet() throws IOException, ServletException {
-		String username = request.getParameter("username");
-		User existingUser = userRepository.get(username);
-		request.setAttribute("user", existingUser);
+		request.setAttribute("userHelper", new UserHelper(request.getParameter("username")));
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/user-form.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -30,11 +29,8 @@ public class EditCommand extends AbstractCommand {
 			request.getParameter("city"),
 			request.getParameter("street")
 		);
-		User newUser = new User(username, password, name, null, address);
-		System.out.println(username);
-		System.out.println(password);
-		System.out.println(name);
-		System.out.println(newUser);
+		User bestFriend = userRepository.get(request.getParameter("bestfriend"));
+		User newUser = new User(username, password, name, bestFriend, address);
 		userRepository.update(newUser);
 		response.sendRedirect("/assignment8/list");
 	}

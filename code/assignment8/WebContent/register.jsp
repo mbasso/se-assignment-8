@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,6 +17,13 @@
 
 <p>
 <label for="name">Name</label><input type="text" name="name"><br>
+<label for="bestfriend">Best Friend</label>
+<select name="bestfriend">
+	<option value=""></option>
+	<c:forEach var="user" items="${userHelper.getUsers()}">
+		<option value="${user.getUsername()}">${user.getUsername()}</option>
+	</c:forEach>
+</select><br>
 <label for="country">Country</label><input type="text" name="country"><br>
 <label for="city">City</label><input type="text" name="city"><br>
 <label for="country">Street</label><input type="text" name="street"><br>

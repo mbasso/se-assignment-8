@@ -77,10 +77,6 @@ public class FrontController extends HttpServlet {
 		
 		command.init(getServletContext(), request, response);
 
-		AuthManager auth = new AuthManager(request.getSession());
-        User currentUser = auth.getUser();
-        
-        request.setAttribute("authHelper", new AuthHelper(currentUser));
 		return command;
 	}
 

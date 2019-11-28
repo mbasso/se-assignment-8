@@ -7,6 +7,7 @@
 </head>
 <body>
 
+    <c:set var = "user" scope = "session" value = "${userHelper.getUser()}"/>
 	<h1>
 		<c:if test="${user != null}">
 			Update user
@@ -32,6 +33,19 @@
 	<label for="username">Username</label><input type="text" name="username" value="<c:out value='${user.getUsername()}' />" <c:if test="${user != null}"><c:out value="readonly='true'"/></c:if>><br>
 	<label for="password">Password</label><input type="password" name="password" value="<c:out value='${user.getPassword()}' />"><br>
 	<label for="name">Name</label><input type="text" name="name" value="<c:out value='${user.getName()}' />"><br>
+	<label for="bestfriend">Best Friend</label>
+	<select name="bestfriend">
+		<option value=""></option>
+		<c:forEach var="uzer" items="${userHelper.getUsers()}">
+			<c:if test="${!uzer.equals(user)}">
+				<option
+					value="${uzer.getUsername()}"
+				>
+					${uzer.getUsername()}
+				</option>
+			</c:if>
+		</c:forEach>
+	</select><br>
 	<label for="country">Country</label><input type="text" name="country" value="<c:out value='${user.getAddress().getCountry()}' />"><br>
 	<label for="city">City</label><input type="text" name="city" value="<c:out value='${user.getAddress().getCity()}' />"><br>
 	<label for="street">Street</label><input type="text" name="street" value="<c:out value='${user.getAddress().getStreet()}' />"><br>

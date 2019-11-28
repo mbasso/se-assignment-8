@@ -9,6 +9,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 @Entity
 @Table(name="users")
 public class User {
@@ -24,9 +27,11 @@ public class User {
 	private String name;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @OnDelete(action = OnDeleteAction.CASCADE)
 	private User bestFriend;
 
     @OneToOne(cascade = {CascadeType.ALL})
+    @OnDelete(action = OnDeleteAction.CASCADE)
 	private Address address;
 	
 	public User() {}

@@ -26,7 +26,7 @@
             <th>Street</th>
             <th>Actions</th>
         </tr>
-        <c:forEach var="user" items="${users}">
+        <c:forEach var="user" items="${userHelper.getUsers()}">
             <tr>
                 <td><c:out value="${user.getUsername()}" /></td>
                 <td><c:out value="${user.getPassword()}" /></td>
@@ -38,7 +38,9 @@
                 <td>
                 	<a href="edit?username=<c:out value='${user.getUsername()}' />">Edit</a>
                 	&nbsp;&nbsp;&nbsp;&nbsp;
-                	<a href="delete?username=<c:out value='${user.getUsername()}' />">Delete</a>                    	
+                	<c:if test="${!authHelper.getUsername().equals(user.getUsername())}">
+                		<a href="delete?username=<c:out value='${user.getUsername()}' />">Delete</a>  
+                	</c:if>                  	
                 </td>
             </tr>
         </c:forEach>
