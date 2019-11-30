@@ -14,6 +14,9 @@
 	<p>
 		<a href="list">User list</a>
 	</p>
+	<p>
+		<a href="search">Search user</a>
+	</p>
 	<table border="1" cellpadding="5">
         <caption><h2>Users</h2></caption>
         <tr>

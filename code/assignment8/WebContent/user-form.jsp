@@ -22,6 +22,9 @@
 	<p>
 		<a href="list">User list</a>
 	</p>
+	<p>
+		<a href="search">Search user</a>
+	</p>
 	
 	<c:if test="${user != null}">
 		<form action="edit" method="post">

@@ -3,9 +3,12 @@ package assignment8.repository;
 import java.util.List;
 import java.util.function.Function;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
+import assignment8.model.Address;
 import assignment8.model.User;
 import assignment8.util.HibernateUtil;
 
@@ -59,5 +62,40 @@ public class UserRepository {
 	@SuppressWarnings("unchecked")
 	public List<User> getAll() {
 		return doTransaction(session -> session.createQuery("from User").getResultList());
+	}
+
+	private void setIfNotNullOrEmpty(Criteria criteria, String property, String value) {
+		if (value != null && !value.isEmpty()) {
+			criteria.add(Restrictions.like(property, "%" + value + "%"));
+		}
+	}
+
+	@SuppressWarnings({ "deprecation", "unchecked" })
+	public List<User> findUsers(User user) {
+		return doTransaction(session -> {
+			Criteria criteria = session.createCriteria(User.class);
+
+			setIfNotNullOrEmpty(criteria, "username", user.getUsername());
+			setIfNotNullOrEmpty(criteria, "name", user.getName());
+			
+			User bestFriend = user.getBestFriend();
+			if (bestFriend != null) {
+				String bestFriendUsername = bestFriend.getUsername();
+				if (bestFriendUsername != null && !bestFriendUsername.isEmpty()) {
+					criteria.createAlias("bestFriend", "bf");
+					criteria.add(Restrictions.eq("bf.username", bestFriend.getUsername()));
+				}
+			}
+			
+			Address address = user.getAddress();
+			if (address != null) {
+				criteria.createAlias("address", "a");
+				setIfNotNullOrEmpty(criteria, "a.country", address.getCountry());
+				setIfNotNullOrEmpty(criteria, "a.city", address.getCity());
+				setIfNotNullOrEmpty(criteria, "a.street", address.getStreet());
+			}
+
+			return criteria.list();
+		});
 	}
 }

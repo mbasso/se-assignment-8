@@ -5,24 +5,17 @@ import java.util.List;
 import assignment8.model.User;
 import assignment8.repository.UserRepository;
 
-public class UserHelper {
+public class SearchHelper {
 	private UserRepository userRepository;
 	private User user;
 	private List<User> users;
 
-	public UserHelper() {
-		this.userRepository = new UserRepository();
-		this.users = userRepository.getAll();
-	}
+	public SearchHelper() {}
 
-	public UserHelper(String username) {
-		this();
-		this.user = userRepository.get(username);
-	}
-
-	public UserHelper(User user) {
-		this();
+	public SearchHelper(User user) {
 		this.user = user;
+		this.userRepository = new UserRepository();
+		this.users = userRepository.findUsers(user);
 	}
 
 	public User getUser() {
