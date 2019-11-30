@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>assignment8.web.view.AuthHelper</OriginalElement>
+  <nodes>
+    <node x="184.0" y="74.0">assignment8.web.view.SearchHelper</node>
+    <node x="0.0" y="74.0">assignment8.util.HibernateUtil</node>
+    <node x="170.0" y="148.0">assignment8.web.view.AuthHelper</node>
+    <node x="0.0" y="148.0">assignment8.web.auth.AuthManager</node>
+    <node x="0.0" y="0.0">assignment8.repository.UserRepository</node>
+    <node x="0.0" y="296.0">assignment8.model.User</node>
+    <node x="163.0" y="222.0">assignment8.model.Address</node>
+    <node x="0.0" y="222.0">assignment8.web.view.UserHelper</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="1.0" x="327.5" y="192.5" />
+  <SelectedNodes>
+    <node>assignment8.web.view.AuthHelper</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

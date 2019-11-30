@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>assignment8.web.command.UnknownCommand</OriginalElement>
+  <nodes>
+    <node x="608.0" y="0.0">assignment8.web.command.AbstractCommand</node>
+    <node x="0.0" y="99.0">assignment8.web.command.UnknownCommand</node>
+    <node x="368.0" y="173.0">assignment8.web.auth.AuthManager</node>
+    <node x="1092.0" y="99.0">assignment8.web.command.SearchCommand</node>
+    <node x="191.0" y="173.0">assignment8.web.view.SearchHelper</node>
+    <node x="940.0" y="99.0">assignment8.web.command.LoginCommand</node>
+    <node x="325.0" y="99.0">assignment8.web.command.EditCommand</node>
+    <node x="701.0" y="173.0">assignment8.web.view.AuthHelper</node>
+    <node x="0.0" y="173.0">assignment8.repository.UserRepository</node>
+    <node x="781.0" y="99.0">assignment8.web.command.DeleteCommand</node>
+    <node x="470.0" y="99.0">assignment8.web.command.NewCommand</node>
+    <node x="608.0" y="99.0">assignment8.web.command.RegisterCommand</node>
+    <node x="1251.0" y="99.0">assignment8.web.command.ListCommand</node>
+    <node x="166.0" y="99.0">assignment8.web.command.LogoutCommand</node>
+    <node x="538.0" y="173.0">assignment8.web.view.UserHelper</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="assignment8.web.command.NewCommand" target="assignment8.web.command.AbstractCommand">
+      <point x="0.0" y="-14.5" />
+      <point x="529.0" y="79.0" />
+      <point x="667.5" y="79.0" />
+      <point x="-17.0" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.RegisterCommand" target="assignment8.web.command.AbstractCommand">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.ListCommand" target="assignment8.web.command.AbstractCommand">
+      <point x="0.0" y="-14.5" />
+      <point x="1313.5" y="49.0" />
+      <point x="752.5" y="49.0" />
+      <point x="68.0" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.EditCommand" target="assignment8.web.command.AbstractCommand">
+      <point x="0.0" y="-14.5" />
+      <point x="387.5" y="69.0" />
+      <point x="650.5" y="69.0" />
+      <point x="-34.0" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.LogoutCommand" target="assignment8.web.command.AbstractCommand">
+      <point x="0.0" y="-14.5" />
+      <point x="235.5" y="59.0" />
+      <point x="633.5" y="59.0" />
+      <point x="-51.0" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.UnknownCommand" target="assignment8.web.command.AbstractCommand">
+      <point x="0.0" y="-14.5" />
+      <point x="73.0" y="49.0" />
+      <point x="616.5" y="49.0" />
+      <point x="-68.0" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.LoginCommand" target="assignment8.web.command.AbstractCommand">
+      <point x="0.0" y="-14.5" />
+      <point x="1006.0" y="69.0" />
+      <point x="718.5" y="69.0" />
+      <point x="34.0" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.SearchCommand" target="assignment8.web.command.AbstractCommand">
+      <point x="0.0" y="-14.5" />
+      <point x="1161.5" y="59.0" />
+      <point x="735.5" y="59.0" />
+      <point x="51.0" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.DeleteCommand" target="assignment8.web.command.AbstractCommand">
+      <point x="0.0" y="-14.5" />
+      <point x="850.5" y="79.0" />
+      <point x="701.5" y="79.0" />
+      <point x="17.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7194787379972565" x="709.0" y="210.58436606291707" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

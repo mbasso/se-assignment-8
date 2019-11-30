@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>assignment8.web.command.AbstractCommand</OriginalElement>
+  <nodes>
+    <node x="814.2996226030189" y="238.0">assignment8.web.annotation.Authorize</node>
+    <node x="547.4040697674418" y="0.0">assignment8.web.command.AbstractCommand</node>
+    <node x="407.7790697674418" y="159.0">assignment8.web.command.UnknownCommand</node>
+    <node x="301.0290697674418" y="238.0">assignment8.web.auth.AuthManager</node>
+    <node x="870.737403100775" y="337.0">assignment8.web.command.SearchCommand</node>
+    <node x="446.0290697674418" y="238.0">assignment8.web.controller.FrontController</node>
+    <node x="255.5290697674418" y="337.0">assignment8.web.command.LoginCommand</node>
+    <node x="587.737403100775" y="337.0">assignment8.web.command.EditCommand</node>
+    <node x="1174.737403100775" y="337.0">assignment8.web.command.DeleteCommand</node>
+    <node x="732.737403100775" y="337.0">assignment8.web.command.NewCommand</node>
+    <node x="10.5" y="159.0">assignment8.web.command.RegisterCommand</node>
+    <node x="1029.737403100775" y="337.0">assignment8.web.command.ListCommand</node>
+    <node x="84.71358629130941" y="337.0">assignment8.web.command.LogoutCommand</node>
+    <node x="439.1329559363523" y="337.0">assignment8.web.filter.AuthFilter</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="assignment8.web.command.NewCommand" target="assignment8.web.command.AbstractCommand">
+      <point x="-39.33333333333334" y="-14.5" />
+      <point x="752.4040697674418" y="287.0" />
+      <point x="756.9246226030189" y="287.0" />
+      <point x="756.9246226030189" y="119.0" />
+      <point x="640.0093329253366" y="119.0" />
+      <point x="16.105263157894797" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.RegisterCommand" target="assignment8.web.command.AbstractCommand">
+      <point x="38.25" y="-14.5" />
+      <point x="125.25" y="79.0" />
+      <point x="567.5356487148102" y="79.0" />
+      <point x="-56.36842105263156" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.DeleteCommand" target="assignment8.web.annotation.Authorize">
+      <point x="-46.33333333333337" y="-14.5" />
+      <point x="1197.9040697674418" y="297.0" />
+      <point x="916.0496226030189" y="297.0" />
+      <point x="46.25" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.ListCommand" target="assignment8.web.command.AbstractCommand">
+      <point x="0.0" y="-14.5" />
+      <point x="1092.237403100775" y="317.0" />
+      <point x="1107.3777029783762" y="317.0" />
+      <point x="1107.3777029783762" y="79.0" />
+      <point x="672.219859241126" y="79.0" />
+      <point x="48.31578947368416" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.NewCommand" target="assignment8.web.annotation.Authorize">
+      <point x="39.33333333333334" y="-14.5" />
+      <point x="831.0707364341084" y="317.0" />
+      <point x="860.5496226030189" y="317.0" />
+      <point x="-9.25" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.EditCommand" target="assignment8.web.command.AbstractCommand">
+      <point x="-41.66666666666663" y="-14.5" />
+      <point x="608.5707364341085" y="287.0" />
+      <point x="629.9635862913094" y="287.0" />
+      <point x="629.9635862913094" y="139.0" />
+      <point x="623.9040697674418" y="139.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.LogoutCommand" target="assignment8.web.command.AbstractCommand">
+      <point x="-46.33333333333326" y="-14.5" />
+      <point x="107.88025295797615" y="317.0" />
+      <point x="0.0" y="317.0" />
+      <point x="0.0" y="59.0" />
+      <point x="551.4303855569154" y="59.0" />
+      <point x="-72.47368421052636" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.SearchCommand" target="assignment8.web.annotation.Authorize">
+      <point x="-46.33333333333337" y="-14.5" />
+      <point x="893.9040697674418" y="317.0" />
+      <point x="879.0496226030189" y="317.0" />
+      <point x="9.25" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.ListCommand" target="assignment8.web.annotation.Authorize">
+      <point x="-41.66666666666666" y="-14.5" />
+      <point x="1050.5707364341083" y="307.0" />
+      <point x="897.5496226030189" y="307.0" />
+      <point x="27.75" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.UnknownCommand" target="assignment8.web.command.AbstractCommand">
+      <point x="36.5" y="-14.5" />
+      <point x="517.2790697674418" y="129.0" />
+      <point x="607.798806609547" y="129.0" />
+      <point x="-16.105263157894797" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.EditCommand" target="assignment8.web.annotation.Authorize">
+      <point x="41.66666666666663" y="-14.5" />
+      <point x="691.9040697674418" y="307.0" />
+      <point x="842.0496226030189" y="307.0" />
+      <point x="-27.75" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.LoginCommand" target="assignment8.web.command.AbstractCommand">
+      <point x="-16.5" y="-14.5" />
+      <point x="305.0290697674418" y="307.0" />
+      <point x="290.5290697674418" y="307.0" />
+      <point x="290.5290697674418" y="109.0" />
+      <point x="591.6935434516523" y="109.0" />
+      <point x="-32.21052631578948" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.SearchCommand" target="assignment8.web.command.AbstractCommand">
+      <point x="46.333333333333314" y="-14.5" />
+      <point x="986.5707364341084" y="317.0" />
+      <point x="984.4166666666666" y="317.0" />
+      <point x="984.4166666666666" y="89.0" />
+      <point x="664.1672276621787" y="89.0" />
+      <point x="40.26315789473688" y="14.5" />
+    </edge>
+    <edge source="assignment8.web.command.DeleteCommand" target="assignment8.web.command.AbstractCommand">
+      <point x="46.33333333333337" y="-14.5" />
+      <point x="1290.5707364341083" y="317.0" />
+      <point x="1270.3777029783762" y="317.0" />
+      <point x="1270.3777029783762" y="49.0" />
+      <point x="696.3777539779682" y="49.0" />
+      <point x="72.47368421052636" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7863568215892054" x="657.0" y="183.0" />
+  <SelectedNodes>
+    <node>assignment8.web.command.AbstractCommand</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
