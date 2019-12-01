@@ -213,7 +213,8 @@
 	\section{Data Mapper}
 	\label{sec:data_mapper}
 	
-	\texttt{Hibernate} uses the \textit{Data Mapper} pattern to deal with the database, convert objects into rows and vice versa. In fact, it is the one that knows the configuration of the database and relies on a DB layer.
+	\texttt{Hibernate} uses the \textit{Data Mapper} pattern to deal with the database. It instantiate an object for each record (row) and maps the columns with the attributes of that object. Relationships are also represented as attributes with the type of another entity.\\
+	\texttt{Hibernate} represents the only module that use the configuration of the database, relies on a DB layer and effectively change the data.
 	
 	\section{Repository pattern}
 	\label{sec:repository_pattern}
